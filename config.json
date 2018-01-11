@@ -1,18 +1,18 @@
 {
   "mongo_host": "mongo.seil.cse.iitb.ac.in",
   "records_batch_size": 18000,
-  "mysql_user": "root",
-  "mysql_pass": "MySQL@seil",
-  "mysql_host": "mysql.seil.cse.iitb.ac.in",
-  "mysql_db_name": "seil_sensor_data_test",
-  "mysql_tables": {
+  "timescale_user": "postgres",
+  "timescale_pass": "postgres",
+  "timescale_host": "timescale.seil.cse.iitb.ac.in",
+  "timescale_db_name": "seil_sensor_data",
+  "timescale_tables": {
     "1": "rish_1",
     "3": "sch_3",
     "5": "temp_5",
     "7": "dht_7"
   },
   "backup_from": "1/12/2017 00:00:00",
-  "backup_till": "1/01/2018 00:00:00",
+  "backup_till": "2/12/2017 00:00:00",
   "transfered_records_log": "transfered_records_log.json",
   "schema": {
     "1": [
