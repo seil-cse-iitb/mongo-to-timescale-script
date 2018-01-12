@@ -2,14 +2,13 @@ import datetime
 import json
 import os
 import os.path
+import psycopg2
+import pymongo as pm
 import smtplib
 import sys
 import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
-import psycopg2
-import pymongo as pm
 
 
 # "power_k_lh_a",
@@ -188,7 +187,7 @@ try:
                     filled_timescale_query += " (" + value_str + "),"
                     records_to_be_copied += 1
                 print("ended building query! no. of records: " + str(records_to_be_copied))
-                filled_timescale_query = filled_timescale_query[:-1]
+                filled_timescale_query = filled_timescale_query[:-1] + "  ON CONFLICT (sensor_id, ts) do nothing "
                 print("removed comma from last!")
                 if records_to_be_copied > 0:
                     try:
