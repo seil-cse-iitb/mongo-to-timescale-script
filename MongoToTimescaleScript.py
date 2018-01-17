@@ -193,10 +193,10 @@ try:
                     try:
                         # save_log(filled_timescale_query)
                         cursor.execute(filled_timescale_query)
-                    except Exception as e:
+                    except Exception as e: 
                         records_to_be_copied = 0
                         print("exception during query execution: ", e)
-                        save_log("collection: " + table_name + " " + str(e) + "\n")
+                        save_log("Exception: collection: " + table_name + " " + str(e) + "\n")
                         timescale_con.rollback()
                         break
                     print("executed query!")
@@ -209,9 +209,10 @@ try:
 
 except Exception as e:
     print("outer exception: ", e)
-    save_log(str(e) + "\n")
+    save_log("Exception: "+str(e) + "\n")
     report_error("sapantanted99@gmail.com", "mongo to timescale script stopped", "outer exception: " + str(e) + "\n")
 finally:
     timescale_con.close()
 
 save_log("script ended at " + str_from_timestamp(time.time()) + "\n")
+
