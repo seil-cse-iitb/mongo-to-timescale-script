@@ -11,8 +11,8 @@
     "5": "temp_5",
     "7": "dht_7"
   },
-  "backup_from": "1/12/2017 00:00:00",
-  "backup_till": "01/1/2018 00:00:00",
+  "backup_from": "1/8/2017 00:00:00",
+  "backup_till": "01/12/2017 00:00:00",
   "transfered_records_log": "transfered_records_log.json",
   "schema": {
     "1": [
