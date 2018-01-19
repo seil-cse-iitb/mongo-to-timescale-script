@@ -173,10 +173,15 @@ try:
                 for row in rows:
                     value_str = ""
                     for col in schema[channel]:
-                        if row[col] is None:
-                            value = "NULL"
+                        if col not in row.keys():
+                            value = "-1"
+                            save_log("Null: col: " + col + " collection: " + table_name)
+                        elif row[col] is None:
+                            value = "-1"
+                            save_log("Null: col: " + col + " collection: " + table_name)
                         elif float(row[col]) == float('inf'):
                             value = "-1"
+                            save_log("Inf: col: " + col + " collection: " + table_name)
                         else:
                             if col == "TS" or col == "TS_RECV":
                                 value = "to_timestamp(" + str(row[col]) + ")"
